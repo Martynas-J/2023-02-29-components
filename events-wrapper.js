@@ -8,7 +8,7 @@ export function eventsWrapper() {
     const eventsListElement = eventsList()
 
     sectionTitleElement.textContent = "Renginiai"
-    const linkButtonLarge = buttonLarge("Daugiau")
+    const linkButtonLarge = buttonLarge("Daugiau", "#")
 
     
     eventsWrapperElement.append(sectionTitleElement, eventsListElement, linkButtonLarge)
