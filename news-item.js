@@ -1,6 +1,6 @@
-import { createHtmlElement } from "./functions.js";
+import createHtmlElement from "./functions.js";
 
-export function newsItem(data) {
+export default function newsItem(data) {
     let {imgSrc, newsCategory, newsTitle, newsDate} = data
     const newsItemElement = createHtmlElement("div", "news-item")
     const linkNewsItem = createHtmlElement("a", "", "#")

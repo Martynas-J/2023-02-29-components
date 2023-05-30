@@ -1,7 +1,7 @@
-import { eventContent } from "./event-content.js";
-import { createHtmlElement } from "./functions.js";
+import eventContent from "./event-content.js";
+import createHtmlElement from "./functions.js";
 
-export function event(data) {
+export default function event(data) {
     const eventElement = createHtmlElement("div", "event")
     const eventLink = createHtmlElement("a", "", "#")
     if (data.eventImageElementSrc) {

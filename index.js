@@ -1,6 +1,6 @@
-import { createHtmlElement } from "./functions.js"
-import { mainContent } from "./main-content.js"
-import { sidebarContent } from "./sidebar-content.js"
+import createHtmlElement from "./functions.js"
+import mainContent from "./main-content.js"
+import sidebarContent from "./sidebar-content.js"
 
 const  container = createHtmlElement("div", "container")
 const  contentWrapper = createHtmlElement("div", "content-wrapper")

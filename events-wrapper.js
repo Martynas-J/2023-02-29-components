@@ -1,16 +1,18 @@
-import { buttonLarge } from "./button-large.js";
-import { eventsList } from "./events-list.js";
-import { createHtmlElement } from "./functions.js";
+import buttonLarge from "./button-large.js";
+import eventsList from "./events-list.js";
+import createHtmlElement from "./functions.js";
 
-export function eventsWrapper() {
+export default function eventsWrapper(title) {
     const eventsWrapperElement = createHtmlElement("div", "events-wrapper")
-    const sectionTitleElement = createHtmlElement("h2", "section-title")
     const eventsListElement = eventsList()
-
-    sectionTitleElement.textContent = "Renginiai"
+    if (title) {
+        const sectionTitleElement = createHtmlElement("h2", "section-title")
+        sectionTitleElement.textContent = title
+        eventsWrapperElement.append(sectionTitleElement)
+    }
     const linkButtonLarge = buttonLarge("Daugiau", "#")
 
-    
-    eventsWrapperElement.append(sectionTitleElement, eventsListElement, linkButtonLarge)
+
+    eventsWrapperElement.append(eventsListElement, linkButtonLarge)
     return eventsWrapperElement
 }

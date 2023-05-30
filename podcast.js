@@ -1,6 +1,6 @@
-import { createHtmlElement } from "./functions.js"
+import createHtmlElement from "./functions.js"
 
-export function podcast(data) {
+export default function podcast(data) {
     let { podcastImageSrc, podcastLength, podcastTitle, podcastDate} = data
     const podcastElement = createHtmlElement("div", "podcast")
     const podcastControlsElement = createHtmlElement("div", "podcast-controls")
