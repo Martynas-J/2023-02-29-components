@@ -7,22 +7,26 @@ export default function eventContent(data) {
     const eventInfoElement = createHtmlElement("div", "event-info")
 
     if (eventTitle) {
+        const eventTitleElement = createHtmlElement("h3", "event-title")
+        eventTitleElement.textContent = eventTitle
+        
         if (eventDay) {
             const eventDayElement = createHtmlElement("span", "event-day")
             eventDayElement.textContent = eventDay
             eventDateElement.append(eventDayElement)
         }
-
-        const eventMonthElement = createHtmlElement("span", "event-month")
-        const eventLocationElement = createHtmlElement("span", "event.location")
-        const eventTitleElement = createHtmlElement("h3", "event-title")
-
-        eventMonthElement.textContent = eventMonth
-        eventLocationElement.textContent = eventLocation
-        eventTitleElement.textContent = eventTitle
-
-        eventDateElement.append(eventMonthElement)
-        eventInfoElement.append(eventLocationElement, eventTitleElement)
+        if (eventMonth) {
+            const eventMonthElement = createHtmlElement("span", "event-month")
+            eventMonthElement.textContent = eventMonth
+            eventDateElement.append(eventMonthElement)
+        }
+        if (eventLocation) {
+            const eventLocationElement = createHtmlElement("span", "event.location")
+            eventLocationElement.textContent = eventLocation
+            eventInfoElement.append(eventLocationElement)
+        }
+        
+        eventInfoElement.append(eventTitleElement)
         eventContentElement.append(eventDateElement, eventInfoElement)
     }
 

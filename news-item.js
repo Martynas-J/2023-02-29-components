@@ -1,24 +1,36 @@
 import createHtmlElement from "./functions.js";
 
 export default function newsItem(data) {
-    let {imgSrc, newsCategory, newsTitle, newsDate} = data
+    let { imgSrc, newsCategory, newsTitle, newsDate } = data
     const newsItemElement = createHtmlElement("div", "news-item")
-    const linkNewsItem = createHtmlElement("a", "", "#")
-    const imageWrapperElement = createHtmlElement("div", "image-wrapper")
-    const newsContentElement = createHtmlElement("div", "news-content")
-    const imageElement = createHtmlElement("img")
-    const newsCategoryElement = createHtmlElement("span", "news-category")
-    const newsTitleElement = createHtmlElement("h3", "news-title")
-    const newsDateElement = createHtmlElement("span", "news-date")
 
-    imageElement.src = imgSrc
-    newsCategoryElement.textContent = newsCategory
-    newsTitleElement.textContent = newsTitle
-    newsDateElement.textContent = newsDate
+    if (newsTitle) {
+        const newsTitleElement = createHtmlElement("h3", "news-title")
+        newsTitleElement.textContent = newsTitle
+        const linkNewsItem = createHtmlElement("a", "", "#")
+        const newsContentElement = createHtmlElement("div", "news-content")
+        if (imgSrc) {
+            const imageWrapperElement = createHtmlElement("div", "image-wrapper")
+            const imageElement = createHtmlElement("img")
+            imageElement.src = imgSrc
+            imageWrapperElement.append(imageElement)
+            linkNewsItem.append(imageWrapperElement)
+        }
+        if (newsCategory) {
+            const newsCategoryElement = createHtmlElement("span", "news-category")
+            newsCategoryElement.textContent = newsCategory
+            newsContentElement.append(newsCategoryElement)
+        }
+        newsContentElement.append(newsTitleElement)
 
-    newsContentElement.append(newsCategoryElement, newsTitleElement, newsDateElement)
-    imageWrapperElement.append(imageElement)
-    linkNewsItem.append(imageWrapperElement, newsContentElement)
-    newsItemElement.append(linkNewsItem)
+        if (newsDate) {
+            const newsDateElement = createHtmlElement("span", "news-date")
+            newsDateElement.textContent = newsDate
+            newsContentElement.append(newsDateElement)
+        }
+        linkNewsItem.append(newsContentElement)
+        newsItemElement.append(linkNewsItem)
+
+    }
     return newsItemElement
 }
