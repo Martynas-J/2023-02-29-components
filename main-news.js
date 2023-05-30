@@ -1,10 +1,10 @@
-import {MAIN_NEWS_DATA} from "./config.js";
+
 import createHtmlElement from "./functions.js";
 import newsItem from "./news-item.js";
 
-export default function mainNews() {
+export default function mainNews(data) {
     const mainNewsElement = createHtmlElement("div", "main-news")
-    MAIN_NEWS_DATA.forEach(element => {
+    data.forEach(element => {
         const newsItemElement = newsItem(element)
         mainNewsElement.append(newsItemElement)
     });

@@ -4,10 +4,10 @@ import mainNews from "./main-news.js";
 import secondaryNews from "./secondary-news.js";
 
 
-export default function newsWrapper(title) {
+export default function newsWrapper(title, mainNewsData, secondaryNewsData) {
     const newsWrapperElement = createHtmlElement("div", "news-wrapper")
-    const mainNewsElement = mainNews()
-    const secondaryNewsElement = secondaryNews()
+    const mainNewsElement = mainNews(mainNewsData)
+    const secondaryNewsElement = secondaryNews(secondaryNewsData)
     
     const buttonLargeElement = buttonLarge("Visos naujienos")
     if (title) {
